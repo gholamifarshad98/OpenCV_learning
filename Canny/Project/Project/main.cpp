@@ -48,7 +48,7 @@ int main(void)
 		std::cout << "Your App cant load an image." << std::endl;
 		return -1;
 	}
-	cv::namedWindow("Input Pic", cv::WINDOW_AUTOSIZE);
+	cv::namedWindow("Input Pic", cv::WINDOW_GUI_NORMAL);
 	cv::createTrackbar("Threshold for Harris", "Input Pic", &Threshold, Max_threshold, RunHarris);
 	cv::imshow("Input Pic", image);
 	RunHarris(0, 0);

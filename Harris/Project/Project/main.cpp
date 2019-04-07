@@ -31,7 +31,7 @@ void MyImRead(void) {
 		cout << "Could not open or find the image" << std::endl;
 	}
 	lowThreshold = 50;
-	CannyThreshold;
+	CannyThreshold(0,0);
 	namedWindow("DisplayWindow", WINDOW_NORMAL);
 	createTrackbar("My Test", "DisplayWindow", &lowThreshold, 100, CannyThreshold);
 	imshow("DisplayWindow", image);
