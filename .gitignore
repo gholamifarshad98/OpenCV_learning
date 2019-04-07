@@ -202,7 +202,6 @@ $RECYCLE.BIN/
 *.jpg
 *.dll
 *.vcxproj
-*.sln
 *.db
 *.txt
 *.filters
