@@ -16,7 +16,7 @@ int main() {
 	Mat Disparity;
 	leftImage.at<uchar>(ro - 5, co - 9) = 255;
 
-
+	//this is a commment
 	Disparity = MySSD(leftImage, rightImage, 6, 30, ro, co);
 	imshow("left Image", leftImage);
 	imshow("right Image", rightImage);
