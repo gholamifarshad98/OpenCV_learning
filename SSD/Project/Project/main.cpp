@@ -1,8 +1,17 @@
-#include <iostream>
 #include <opencv2/highgui/highgui.hpp>
+#include <time.h>
+#include<iostream>
+#include<fstream>
+clock_t start_time;
+clock_t end_time;
+std::string TimeCalcWithImWrite;
+std::string TimeCalc;
+
 using namespace std;
 using namespace cv;
 Mat MySSD(Mat &, Mat &, int, int, int, int);
+ofstream Output;
+
 int main() {
 	Mat leftImage = imread("view0.png", 0);
 	Mat rightImage = imread("view1.png", 0);
@@ -15,13 +24,17 @@ int main() {
 	ro = leftImage.rows;
 	Mat Disparity;
 	leftImage.at<uchar>(ro - 5, co - 9) = 255;
-
-	//this is a commment
+	start_time = clock();
 	Disparity = MySSD(leftImage, rightImage, 6, 30, ro, co);
 	imshow("left Image", leftImage);
 	imshow("right Image", rightImage);
 	imshow("Disparity Image", Disparity);
+	end_time = clock();
 	cout << "Width is ===>" << co << " and Hight is ====> " << ro << endl;
+	Output.open("TimeResults.txt");
+	TimeCalc = "Calculation for a pair of pic with writing image time is " + to_string(end_time - start_time) + "ms";
+	Output << TimeCalc << endl;
+	Output.close();
 	waitKey(0);
 
 	return 0;

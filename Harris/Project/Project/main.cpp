@@ -48,7 +48,7 @@ void CannyThreshold(int, void* ) {
 	cv::imshow(NameOfResultWin,result);
 
 	if (getCannyResults == false) {
-		start_time = clock();;
+		start_time = clock();
 		for (int i = 10; i <= 100; i = i + 10) {
 			cv::blur(image, result, cv::Size(3, 3), cv::Point(-1, -1));
 			cv::Canny(result, result, i, lowThreshold*ratio, 3);
@@ -60,7 +60,7 @@ void CannyThreshold(int, void* ) {
 		TimeCalc = "Calculation for 10 pic with writing image time is " + to_string(end_time - start_time) + "ms";
 		Output << TimeCalc << endl;
 		//Output.close();
-		start_time = clock();;
+		start_time = clock();
 		for (int i = 10; i <= 100; i = i + 10) {
 			cv::blur(image, result, cv::Size(3, 3), cv::Point(-1, -1));
 			cv::Canny(result, result, i, lowThreshold*ratio, 3);
